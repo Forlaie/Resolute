@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var textField: UITextField!
@@ -20,12 +22,31 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryLabel.backgroundColor = chosenCategory!.backgroundColor
-        categoryLabel.text = chosenCategory!.text
-        categoryLabel.textColor = chosenCategory!.textColor
+        createCategoryLabel()
+        updateLevelLabel()
+        updateMoneyLabel()
         appState = .normal
         updateUI()
         buildQuests()
+    }
+    
+    func createCategoryLabel(){
+        categoryLabel.text = chosenCategory!.text
+        categoryLabel.textColor = chosenCategory!.textColor
+        categoryLabel.backgroundColor = chosenCategory!.backgroundColor
+    }
+    
+    func updateLevelLabel(){
+        levelLabel.text = "Level \(player.level)"
+        levelLabel.textColor = chosenCategory!.textColor
+        levelLabel.backgroundColor = chosenCategory!.backgroundColor
+        
+    }
+    
+    func updateMoneyLabel(){
+        moneyLabel.text = "\(player.money) money"
+        moneyLabel.textColor = chosenCategory!.textColor
+        moneyLabel.backgroundColor = chosenCategory!.backgroundColor
     }
     
     override func viewDidLayoutSubviews() {

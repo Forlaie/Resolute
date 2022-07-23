@@ -9,6 +9,8 @@ import UIKit
 
 class DailiesViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var textField: UITextField!
@@ -22,6 +24,16 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         appState = .normal
         updateUI()
         buildDailies()
+        updateLevelLabel()
+        updateMoneyLabel()
+    }
+    
+    func updateLevelLabel(){
+        levelLabel.text = "Level \(player.level)"
+    }
+    
+    func updateMoneyLabel(){
+        moneyLabel.text = "\(player.money) money"
     }
     
     override func viewDidLayoutSubviews() {

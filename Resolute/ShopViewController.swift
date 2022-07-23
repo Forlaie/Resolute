@@ -22,16 +22,16 @@ class ShopViewController: UIViewController {
         //tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
-        updateMoneyLabel()
         updateLevelLabel()
-    }
-    
-    func updateMoneyLabel(){
-        moneyLabel.text = "\(player.money) money"
+        updateMoneyLabel()
     }
     
     func updateLevelLabel(){
         levelLabel.text = "Level \(player.level)"
+    }
+    
+    func updateMoneyLabel(){
+        moneyLabel.text = "\(player.money) money"
     }
 }
 

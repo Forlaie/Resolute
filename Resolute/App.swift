@@ -101,4 +101,4 @@ let shopItems: [Item] = [
 
 var inventory: [Item] = []
 
-var player = Player(money: 30, level: 1, xp: 0, lvlupXp: 50)
+var player = Player(money: 0, level: 1, xp: 0, lvlupXp: 50)

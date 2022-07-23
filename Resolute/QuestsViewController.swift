@@ -9,6 +9,8 @@ import UIKit
 
 class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPickerViewControllerDelegate {
     
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var categoryStack: UIStackView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
@@ -22,6 +24,16 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
         appState = .normal
         updateUI()
         buildCategories()
+        updateLevelLabel()
+        updateMoneyLabel()
+    }
+    
+    func updateLevelLabel(){
+        levelLabel.text = "Level \(player.level)"
+    }
+    
+    func updateMoneyLabel(){
+        moneyLabel.text = "\(player.money) money"
     }
     
     override func viewDidLayoutSubviews() {
