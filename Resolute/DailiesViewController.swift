@@ -186,10 +186,23 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
             newDailyLabel.numberOfLines = 0
             newDailyLabel.lineBreakMode = .byWordWrapping
             
-            if daily.state == .completed{
-                newDailyButton.isEnabled = false
-                newDailyLabel.textColor = .gray
-            }
+            let gainInfo = UIStackView()
+            gainInfo.axis = .vertical
+            gainInfo.alignment = .fill
+            gainInfo.distribution = .fillEqually
+            
+            let newDailyXPGainLabel = UILabel()
+            newDailyXPGainLabel.text = "10 xp"
+            newDailyXPGainLabel.font = UIFont.systemFont(ofSize: 15.0)
+            newDailyXPGainLabel.textColor = .darkGray
+            
+            let newDailyMoneyGainLabel = UILabel()
+            newDailyMoneyGainLabel.text = "5 money"
+            newDailyMoneyGainLabel.font = UIFont.systemFont(ofSize: 15.0)
+            newDailyMoneyGainLabel.textColor = .darkGray
+            
+            gainInfo.addArrangedSubview(newDailyXPGainLabel)
+            gainInfo.addArrangedSubview(newDailyMoneyGainLabel)
             
             let newDailyDeleteButton = UIButton()
             newDailyDeleteButton.layer.cornerRadius = 5
@@ -205,6 +218,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
             
             taskStack.addArrangedSubview(newDailyButton)
             taskStack.addArrangedSubview(newDailyLabel)
+            taskStack.addArrangedSubview(gainInfo)
             taskStack.addArrangedSubview(newDailyDeleteButton)
             newDailyDeleteButton.isHidden = true
             dailiesStack.addArrangedSubview(taskStack)
@@ -217,6 +231,13 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
             dailyDeleteButtons.append(newDailyDeleteButton)
             dailyDeleteButtonTags.append(dailyButtonCount)
             dailyButtonCount += 1
+            
+            if daily.state == .completed{
+                newDailyButton.isEnabled = false
+                newDailyLabel.textColor = .gray
+                newDailyXPGainLabel.textColor = .lightGray
+                newDailyMoneyGainLabel.textColor = .lightGray
+            }
             
             let buttonConstraint = [newDailyButton.widthAnchor.constraint(equalToConstant: 31)]
             NSLayoutConstraint.activate(buttonConstraint)

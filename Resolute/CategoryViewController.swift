@@ -198,10 +198,23 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             newQuestLabel.numberOfLines = 0
             newQuestLabel.lineBreakMode = .byWordWrapping
             
-            if quest.state == .completed{
-                newQuestButton.isEnabled = false
-                newQuestLabel.textColor = .gray
-            }
+            let gainInfo = UIStackView()
+            gainInfo.axis = .vertical
+            gainInfo.alignment = .fill
+            gainInfo.distribution = .fillEqually
+            
+            let newQuestXPGainLabel = UILabel()
+            newQuestXPGainLabel.text = "10 xp"
+            newQuestXPGainLabel.font = UIFont.systemFont(ofSize: 15.0)
+            newQuestXPGainLabel.textColor = .darkGray
+            
+            let newQuestMoneyGainLabel = UILabel()
+            newQuestMoneyGainLabel.text = "5 money"
+            newQuestMoneyGainLabel.font = UIFont.systemFont(ofSize: 15.0)
+            newQuestMoneyGainLabel.textColor = .darkGray
+            
+            gainInfo.addArrangedSubview(newQuestXPGainLabel)
+            gainInfo.addArrangedSubview(newQuestMoneyGainLabel)
             
             let newQuestDeleteButton = UIButton()
             newQuestDeleteButton.layer.cornerRadius = 5
@@ -217,6 +230,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             
             taskStack.addArrangedSubview(newQuestButton)
             taskStack.addArrangedSubview(newQuestLabel)
+            taskStack.addArrangedSubview(gainInfo)
             taskStack.addArrangedSubview(newQuestDeleteButton)
             newQuestDeleteButton.isHidden = true
             questsStack.addArrangedSubview(taskStack)
