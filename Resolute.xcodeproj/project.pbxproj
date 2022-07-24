@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14238B92288DCE9A00450A05 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14238B91288DCE9A00450A05 /* CharacterViewController.swift */; };
+		14238B94288DDBEB00450A05 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14238B93288DDBEB00450A05 /* CharacterTableViewCell.swift */; };
 		1447C990288B044400531502 /* ShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447C98F288B044400531502 /* ShopTableViewCell.swift */; };
 		1499ADE7287DDAC400C5CDA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1499ADE6287DDAC400C5CDA0 /* AppDelegate.swift */; };
 		1499ADE9287DDAC400C5CDA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1499ADE8287DDAC400C5CDA0 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		14238B91288DCE9A00450A05 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
+		14238B93288DDBEB00450A05 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		1447C98F288B044400531502 /* ShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewCell.swift; sourceTree = "<group>"; };
 		1499ADE3287DDAC400C5CDA0 /* Resolute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resolute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1499ADE6287DDAC400C5CDA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				1499AE06287E4F1D00C5CDA0 /* App.swift */,
 				1447C98F288B044400531502 /* ShopTableViewCell.swift */,
 				14238B91288DCE9A00450A05 /* CharacterViewController.swift */,
+				14238B93288DDBEB00450A05 /* CharacterTableViewCell.swift */,
 			);
 			path = Resolute;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				1499ADE9287DDAC400C5CDA0 /* SceneDelegate.swift in Sources */,
 				1499AE01287E25AB00C5CDA0 /* AchievementsViewController.swift in Sources */,
 				1499ADFD287E1D0800C5CDA0 /* QuestsViewController.swift in Sources */,
+				14238B94288DDBEB00450A05 /* CharacterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

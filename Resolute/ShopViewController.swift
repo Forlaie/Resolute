@@ -19,7 +19,6 @@ class ShopViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
         updateLevelLabel()
@@ -43,6 +42,7 @@ extension ShopViewController: ShopTableViewCellDelegate {
         else{
             purchaseSuccess(name: name)
             player.money -= price
+            player.inventory.append(shopItems[index])
             updateMoneyLabel()
         }
     }

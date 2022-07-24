@@ -40,11 +40,12 @@ struct Item{
 }
 
 struct Player{
-    //var username: String
+    var username: String
     var money: Int
     var level: Int
     var xp: Int
     var lvlupXp: Int
+    var inventory: [Item]
 }
 
 enum AppState{
@@ -96,6 +97,4 @@ let shopItems: [Item] = [
     Item(name: "Shoes", cost: 30, own: false, equip: false)
 ]
 
-var inventory: [Item] = []
-
-var player = Player(money: 0, level: 1, xp: 0, lvlupXp: 50)
+var player = Player(username: "Forlaie", money: 0, level: 1, xp: 0, lvlupXp: 50, inventory: [])

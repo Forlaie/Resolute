@@ -7,13 +7,20 @@
 
 import UIKit
 
+protocol CharacterTableViewCellDelegate: AnyObject{
+    func equipItem(name: String, index: Int)
+}
+
 class CharacterViewController: UIViewController {
 
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.allowsSelection = false
         updateLevelLabel()
         updateMoneyLabel()
     }
@@ -26,3 +33,49 @@ class CharacterViewController: UIViewController {
         moneyLabel.text = "\(player.money) money"
     }
 }
+
+extension CharacterViewController: CharacterTableViewCellDelegate {
+    func equipItem(name: String, index: Int) {
+        if player.inventory[index].equip == false{
+            player.inventory[index].equip = true
+            equippedItem(name: name)
+        }
+        else{
+            player.inventory[index].equip = false
+            unequippedItem(name: name)
+        }
+    }
+
+    func equippedItem(name: String){
+        let alert = UIAlertController(title: "Equipped Item!", message: "\(name) has now been equipped on your character", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true, completion: nil)
+    }
+
+    func unequippedItem(name: String){
+        let alert = UIAlertController(title: "Unequipped Item!", message: "\(name) has now been unequipped from your character", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Thanks!", style: .default, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension CharacterViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return player.inventory.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CharacterTableViewCell
+        cell.update(with: player.inventory[indexPath.row], index: indexPath.row)
+        cell.delegate = self
+        return cell
+    }
+}
+
