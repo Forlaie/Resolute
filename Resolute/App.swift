@@ -82,6 +82,7 @@ var categoryDeleteButtons: [UIButton] = []
 var categoryDeleteButtonTags: [Int] = []
 var categoryButtonCount = 0
 var categoryHStacks: [UIView] = []
+var categoryText = ""
 
 var chosenCategory: Category?
 var chosenCategoryIndex: Int?

@@ -121,6 +121,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         textField.isHidden = false
         textField.becomeFirstResponder()
         textField.text = ""
+        textField.placeholder = "Enter a daily task here"
         textFieldInstructions.isHidden = false
         dailiesStack.isHidden = true
         doneButton.isHidden = false

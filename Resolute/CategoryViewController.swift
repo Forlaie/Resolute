@@ -132,6 +132,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
         textField.isHidden = false
         textField.becomeFirstResponder()
         textField.text = ""
+        textField.placeholder = "Enter a quest here"
         textFieldInstructions.isHidden = false
         questsStack.isHidden = true
         doneButton.isHidden = false

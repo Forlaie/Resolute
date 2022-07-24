@@ -63,10 +63,6 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
     }
     
     @IBAction func doneAction(_ sender: UIButton) {
-        if appState == .add{
-            categories.removeLast()
-            buildCategories()
-        }
         appState = .normal
         updateUI()
     }
@@ -102,6 +98,7 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
         textField.isHidden = false
         textField.becomeFirstResponder()
         textField.text = ""
+        textField.placeholder = "Enter a category here"
         textFieldInstructions.isHidden = false
         categoryStack.isHidden = true
         doneButton.isHidden = false
@@ -145,10 +142,8 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let textFieldContents = textField.text!
-        categories.append(Category(text: textFieldContents, textColor: .white, backgroundColor: .blue, questTasks: [], questButtons: [], questHStacks: [], questButtonCount: 0, questDeleteButtons: [], questDeleteButtonTags: []))
+        categoryText = textField.text!
         doneButton.isHidden = false
-        appState = .add
         buildCategories()
         
         let colourPickerVC = UIColorPickerViewController()
@@ -158,7 +153,7 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
     }
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        categories[categories.count-1].backgroundColor = viewController.selectedColor
+        categories.append(Category(text: categoryText, textColor: .white, backgroundColor: viewController.selectedColor, questTasks: [], questButtons: [], questHStacks: [], questButtonCount: 0, questDeleteButtons: [], questDeleteButtonTags: []))
         buildCategories()
         appState = .normal
         updateUI()
