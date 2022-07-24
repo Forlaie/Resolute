@@ -28,6 +28,11 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         updateMoneyLabel()
     }
     
+//    func createBG(){
+//        let rect = CGRect(x: 0, y: 0, width: view.frame.width, height: 133)
+//        rect.
+//    }
+    
     func updateLevelLabel(){
         levelLabel.text = "Level \(player.level)"
     }

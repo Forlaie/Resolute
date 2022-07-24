@@ -16,6 +16,7 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         updateLevelLabel()
         updateMoneyLabel()
+        //title = "Home Screen"
     }
     
     func updateLevelLabel(){
