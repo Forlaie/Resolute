@@ -28,12 +28,12 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         updateMoneyLabel()
     }
     
-//    func createBG(){
-//        let rect = CGRect(x: 0, y: 0, width: view.frame.width, height: 133)
-//        rect.
-//    }
-    
     func updateLevelLabel(){
+        if player.xp >= player.lvlupXp{
+            player.xp -= player.lvlupXp
+            player.level += 1
+            player.lvlupXp = 50 * player.level
+        }
         levelLabel.text = "Level \(player.level)"
     }
     
@@ -73,6 +73,12 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
                 buildDailies()
                 appState = .normal
                 updateUI()
+                
+                player.xp += 10
+                player.money += 5
+                updateLevelLabel()
+                updateMoneyLabel()
+                
                 break
             }
             index += 1

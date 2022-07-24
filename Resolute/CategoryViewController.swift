@@ -37,6 +37,11 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateLevelLabel(){
+        if player.xp >= player.lvlupXp{
+            player.xp -= player.lvlupXp
+            player.level += 1
+            player.lvlupXp = 50 * player.level
+        }
         levelLabel.text = "Level \(player.level)"
         levelLabel.textColor = chosenCategory!.textColor
         levelLabel.backgroundColor = chosenCategory!.backgroundColor
@@ -79,6 +84,12 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
                 buildQuests()
                 appState = .normal
                 updateUI()
+                
+                player.xp += 10
+                player.money += 5
+                updateLevelLabel()
+                updateMoneyLabel()
+                
                 break
             }
             index += 1

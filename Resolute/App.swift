@@ -42,11 +42,7 @@ struct Item{
 struct Player{
     //var username: String
     var money: Int
-    var level: Int = 1 {
-        didSet {
-            lvlupXp = 50 * level
-        }
-    }
+    var level: Int
     var xp: Int
     var lvlupXp: Int
 }
