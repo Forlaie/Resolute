@@ -15,6 +15,7 @@ class CharacterTableViewCell: UITableViewCell {
     @IBOutlet weak var equipButton: UIButton!
     
     func update(with item: Item, index: Int){
+        itemGraphic.image = item.image
         itemName.text = item.name
         if !item.equip{
             equipButton.setTitle("Equip", for: .normal)

@@ -16,6 +16,7 @@ class ShopTableViewCell: UITableViewCell {
     @IBOutlet weak var purchaseButton: UIButton!
     
     func update(with item: Item, index: Int){
+        itemGraphic.image = item.image
         itemName.text = item.name
         itemPrice.text = "\(item.cost) money"
         itemPrice.tag = item.cost

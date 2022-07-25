@@ -32,7 +32,7 @@ struct Category{
 }
 
 struct Item{
-    //var image: UIImage
+    var image: UIImage
     var name: String
     var cost: Int
     var own: Bool
@@ -106,10 +106,10 @@ var chosenCategoryIndex: Int?
 //let shopItems = ["Hat", "Scarf", "Glasses", "Shirt", "Pants", "Hoodie", "Shorts", "Gloves", "Shoes", "Boots"]
 
 var shopItems: [Item] = [
-    Item(name: "Hat", cost: 10, own: false, equip: false),
-    Item(name: "Shoes", cost: 30, own: false, equip: false),
-    Item(name: "Shirt", cost: 50, own: false, equip: false),
-    Item(name: "Pants", cost: 50, own: false, equip: false)
+    Item(image: UIImage(named: "Hat.png")!, name: "Hat", cost: 10, own: false, equip: false),
+    Item(image: UIImage(named: "Shoe.png")!, name: "Shoes", cost: 30, own: false, equip: false),
+    Item(image: UIImage(named: "Shirt.png")!, name: "Shirt", cost: 50, own: false, equip: false),
+    Item(image: UIImage(named: "Pant.png")!, name: "Pants", cost: 50, own: false, equip: false)
 ] {
     didSet {
         shopItems = sortShopItems()
