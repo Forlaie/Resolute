@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="34C-lh-7ur">
-                                <rect key="frame" x="40" y="162" width="310" height="450"/>
+                                <rect key="frame" x="40" y="162" width="310" height="470"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXy-7D-zhP">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="70"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Displays your dailies (your daily tasks)" label="Dailies button"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="mrr-tc-Xnj"/>
+                                            <constraint firstAttribute="height" constant="70" id="LJV-AG-Blw"/>
                                         </constraints>
                                         <color key="tintColor" red="1" green="0.55605982320000003" blue="0.39130664110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
@@ -70,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugm-he-sbt">
-                                        <rect key="frame" x="0.0" y="300" width="310" height="50"/>
+                                        <rect key="frame" x="0.0" y="300" width="310" height="70"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Displays items avaliable to purchase with coins" label="Shop button"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="o5x-6K-fgH"/>
@@ -86,7 +86,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-id-Tkb">
-                                        <rect key="frame" x="0.0" y="380" width="310" height="70"/>
+                                        <rect key="frame" x="0.0" y="400" width="310" height="70"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Displays your dailies (your daily tasks)" label="Dailies button"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="LAX-R0-vd9"/>
@@ -157,11 +157,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eu4-Ds-SZh" secondAttribute="trailing" id="1dp-UU-7An"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="34C-lh-7ur" secondAttribute="bottom" constant="179" id="B7r-jn-eA8"/>
                             <constraint firstItem="34C-lh-7ur" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K4b-gd-mVG"/>
                             <constraint firstItem="34C-lh-7ur" firstAttribute="top" secondItem="eu4-Ds-SZh" secondAttribute="bottom" constant="30" id="VzY-2n-TVm"/>
                             <constraint firstItem="34C-lh-7ur" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="WQd-jT-eXx"/>
                             <constraint firstItem="eu4-Ds-SZh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="32" id="YxL-TG-N4l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="34C-lh-7ur" secondAttribute="bottom" constant="178" id="e2q-2c-Am4"/>
                             <constraint firstItem="eu4-Ds-SZh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s1o-DN-bkJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="34C-lh-7ur" secondAttribute="trailing" constant="40" id="xqV-qF-yzW"/>
                         </constraints>
@@ -997,7 +997,7 @@
                                     <constraint firstAttribute="width" constant="390" id="bNb-pb-iqf"/>
                                     <constraint firstAttribute="height" constant="35" id="h3S-4n-jrz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.92549026010000002" green="0.38823530080000002" blue="0.34901961679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
