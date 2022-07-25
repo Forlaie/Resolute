@@ -10,6 +10,8 @@ import UIKit
 class CategoryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var XPProgressBar: UIProgressView!
+    @IBOutlet weak var XPLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
@@ -24,6 +26,8 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         createCategoryLabel()
         updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
         updateMoneyLabel()
         appState = .normal
         updateUI()
@@ -46,6 +50,17 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
         levelLabel.textColor = chosenCategory!.textColor
         levelLabel.backgroundColor = chosenCategory!.backgroundColor
         
+    }
+    
+    func updateXPProgressBar(){
+        XPProgressBar.progress = Float(player.xp)/Float(player.lvlupXp)
+        XPProgressBar.progressTintColor = chosenCategory!.textColor
+    }
+    
+    func updateXPLabel(){
+        XPLabel.text = " \(player.xp)/\(player.lvlupXp)"
+        XPLabel.textColor = chosenCategory!.textColor
+        XPLabel.backgroundColor = chosenCategory!.backgroundColor
     }
     
     func updateMoneyLabel(){
@@ -88,6 +103,8 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
                 player.xp += 10
                 player.money += 5
                 updateLevelLabel()
+                updateXPProgressBar()
+                updateXPLabel()
                 updateMoneyLabel()
                 
                 break

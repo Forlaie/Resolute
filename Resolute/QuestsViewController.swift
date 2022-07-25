@@ -10,6 +10,8 @@ import UIKit
 class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPickerViewControllerDelegate {
     
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var XPProgressBar: UIProgressView!
+    @IBOutlet weak var XPLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var categoryStack: UIStackView!
     @IBOutlet weak var addButton: UIButton!
@@ -25,11 +27,21 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
         updateUI()
         buildCategories()
         updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
         updateMoneyLabel()
     }
     
     func updateLevelLabel(){
         levelLabel.text = "Level \(player.level)"
+    }
+    
+    func updateXPProgressBar(){
+        XPProgressBar.progress = Float(player.xp)/Float(player.lvlupXp)
+    }
+    
+    func updateXPLabel(){
+        XPLabel.text = " \(player.xp)/\(player.lvlupXp)"
     }
     
     func updateMoneyLabel(){
@@ -165,6 +177,7 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
             newCategory.layer.cornerRadius = 5
             newCategory.backgroundColor = category.backgroundColor
             newCategory.setTitle(category.text, for: .normal)
+            newCategory.setTitleColor(category.textColor, for: .normal)
             newCategory.titleLabel?.font = .systemFont(ofSize: 30)
             newCategory.titleLabel?.numberOfLines = 1
             newCategory.titleLabel?.adjustsFontSizeToFitWidth = true

@@ -10,6 +10,8 @@ import UIKit
 class DailiesViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var XPProgressBar: UIProgressView!
+    @IBOutlet weak var XPLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
@@ -25,6 +27,8 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         updateUI()
         buildDailies()
         updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
         updateMoneyLabel()
     }
     
@@ -35,6 +39,14 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
             player.lvlupXp = 50 * player.level
         }
         levelLabel.text = "Level \(player.level)"
+    }
+    
+    func updateXPProgressBar(){
+        XPProgressBar.progress = Float(player.xp)/Float(player.lvlupXp)
+    }
+    
+    func updateXPLabel(){
+        XPLabel.text = " \(player.xp)/\(player.lvlupXp)"
     }
     
     func updateMoneyLabel(){
@@ -77,6 +89,8 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
                 player.xp += 10
                 player.money += 5
                 updateLevelLabel()
+                updateXPProgressBar()
+                updateXPLabel()
                 updateMoneyLabel()
                 
                 break
