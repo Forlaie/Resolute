@@ -18,10 +18,14 @@ class CharacterTableViewCell: UITableViewCell {
         itemName.text = item.name
         if !item.equip{
             equipButton.setTitle("Equip", for: .normal)
+            equipButton.layer.backgroundColor = UIColor.systemBlue.cgColor
         }
         else{
             equipButton.setTitle("Unequip", for: .normal)
+            equipButton.layer.backgroundColor = UIColor.systemRed.cgColor
         }
+        equipButton.setTitleColor(.white, for: .normal)
+        equipButton.layer.cornerRadius = 10
         equipButton.tag = index
     }
     

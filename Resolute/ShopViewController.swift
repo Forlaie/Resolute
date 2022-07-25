@@ -48,15 +48,20 @@ class ShopViewController: UIViewController {
 
 extension ShopViewController: ShopTableViewCellDelegate {
     func buyItem(name: String, price: Int, index: Int) {
-        if player.money < price{
-            purchaseFailure(name: name)
-        }
-        else{
-            purchaseSuccess(name: name)
-            player.money -= price
-            player.inventory.append(shopItems[index])
-            updateMoneyLabel()
-        }
+        purchaseSuccess(name: name)
+        player.money -= price
+        player.inventory.append(shopItems[index])
+        updateMoneyLabel()
+        tableView.reloadData()
+        //        if player.money < price{
+        //            purchaseFailure(name: name)
+        //        }
+        //        else{
+        //            purchaseSuccess(name: name)
+        //            player.money -= price
+        //            player.inventory.append(shopItems[index])
+        //            updateMoneyLabel()
+        //        }
     }
     
     func purchaseSuccess(name: String){
@@ -66,12 +71,12 @@ extension ShopViewController: ShopTableViewCellDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func purchaseFailure(name: String){
-        let alert = UIAlertController(title: "Purchase Failure", message: "You do not have enough money to purchase \(name)", preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "Nooo", style: .default, handler: nil)
-        alert.addAction(dismiss)
-        present(alert, animated: true, completion: nil)
-    }
+//    func purchaseFailure(name: String){
+//        let alert = UIAlertController(title: "Purchase Failure", message: "You do not have enough money to purchase \(name)", preferredStyle: .alert)
+//        let dismiss = UIAlertAction(title: "Nooo", style: .default, handler: nil)
+//        alert.addAction(dismiss)
+//        present(alert, animated: true, completion: nil)
+//    }
 }
 
 extension ShopViewController: UITableViewDataSource {

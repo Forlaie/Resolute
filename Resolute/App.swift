@@ -65,6 +65,21 @@ func sortDailyTasks() -> [Task]{
     return sortedDailyTasks
 }
 
+func sortShopItems() -> [Item]{
+    var sortedShopItems: [Item] = []
+    var unaffordableShopItems: [Item] = []
+    for item in shopItems{
+        if item.cost <= player.money{
+            sortedShopItems.append(item)
+        }
+        else{
+            unaffordableShopItems.append(item)
+        }
+    }
+    sortedShopItems.append(contentsOf: unaffordableShopItems)
+    return sortedShopItems
+}
+
 var appState: AppState = .normal
 
 var dailyTasks: [Task] = [] {
@@ -90,11 +105,15 @@ var chosenCategoryIndex: Int?
 
 //let shopItems = ["Hat", "Scarf", "Glasses", "Shirt", "Pants", "Hoodie", "Shorts", "Gloves", "Shoes", "Boots"]
 
-let shopItems: [Item] = [
+var shopItems: [Item] = [
     Item(name: "Hat", cost: 10, own: false, equip: false),
+    Item(name: "Shoes", cost: 30, own: false, equip: false),
     Item(name: "Shirt", cost: 50, own: false, equip: false),
-    Item(name: "Pants", cost: 50, own: false, equip: false),
-    Item(name: "Shoes", cost: 30, own: false, equip: false)
-]
+    Item(name: "Pants", cost: 50, own: false, equip: false)
+] {
+    didSet {
+        shopItems = sortShopItems()
+    }
+}
 
 var player = Player(username: "Forlaie", money: 0, level: 1, xp: 0, lvlupXp: 50, inventory: [])

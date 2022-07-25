@@ -64,6 +64,7 @@ extension CharacterViewController: CharacterTableViewCellDelegate {
         let dismiss = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)
+        tableView.reloadData()
     }
 
     func unequippedItem(name: String){
@@ -71,6 +72,7 @@ extension CharacterViewController: CharacterTableViewCellDelegate {
         let dismiss = UIAlertAction(title: "Thanks!", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)
+        tableView.reloadData()
     }
 }
 

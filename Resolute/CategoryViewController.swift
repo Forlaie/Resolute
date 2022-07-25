@@ -235,7 +235,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             gainInfo.addArrangedSubview(newQuestMoneyGainLabel)
             
             let newQuestDeleteButton = UIButton()
-            newQuestDeleteButton.layer.cornerRadius = 5
+            newQuestDeleteButton.layer.cornerRadius = 10
             newQuestDeleteButton.setTitle("Delete", for: .normal)
             newQuestDeleteButton.backgroundColor = .red
             newQuestDeleteButton.addTarget(self, action: #selector(chooseQuestToDelete), for: .touchUpInside)

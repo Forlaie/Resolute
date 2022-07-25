@@ -20,10 +20,12 @@ class ShopTableViewCell: UITableViewCell {
         itemPrice.text = "\(item.cost) money"
         itemPrice.tag = item.cost
         purchaseButton.tag = index
-        
-//        if item.cost > player.money{
-//            purchaseButton.isEnabled = false
-//        }
+        if item.cost > player.money{
+            purchaseButton.isEnabled = false
+        }
+        else{
+            purchaseButton.isEnabled = true
+        }
     }
     
     @IBAction func buyItem(_ sender: UIButton) {

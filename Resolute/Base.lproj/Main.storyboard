@@ -70,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugm-he-sbt">
-                                        <rect key="frame" x="0.0" y="300" width="310" height="70"/>
+                                        <rect key="frame" x="0.0" y="300" width="310" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Displays items avaliable to purchase with coins" label="Shop button"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="o5x-6K-fgH"/>
@@ -86,7 +86,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-id-Tkb">
-                                        <rect key="frame" x="0.0" y="400" width="310" height="50"/>
+                                        <rect key="frame" x="0.0" y="380" width="310" height="70"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Displays your dailies (your daily tasks)" label="Dailies button"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="LAX-R0-vd9"/>
@@ -1031,7 +1031,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peJ-nz-fbW">
                                                             <rect key="frame" x="0.0" y="50" width="185" height="50"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="filled" title="Equip"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="Equip"/>
                                                             <connections>
                                                                 <action selector="equipItem:" destination="WZT-Rz-bSp" eventType="touchUpInside" id="Uaj-Yy-fBv"/>
                                                             </connections>
