@@ -53,6 +53,13 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         moneyLabel.text = "\(player.money) money"
     }
     
+//    func leveledUp(){
+//        let alert = UIAlertController(title: "Leveled!", message: "\(name) has now been equipped on your character", preferredStyle: .alert)
+//        let dismiss = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
+//        alert.addAction(dismiss)
+//        present(alert, animated: true, completion: nil)
+//    }
+    
     override func viewDidLayoutSubviews() {
         scroll.contentSize = CGSize(width: scroll.frame.width, height: dailiesStack.bounds.height + 60)
     }

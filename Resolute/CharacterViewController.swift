@@ -56,17 +56,18 @@ extension CharacterViewController: CharacterTableViewCellDelegate {
             player.inventory[index].equip = false
             unequippedItem(name: name)
         }
+        tableView.reloadData()
     }
 
     func equippedItem(name: String){
-        let alert = UIAlertController(title: "Equipped Item!", message: "\(name) has now been equipped on your character", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Equipped Item!", message: "\(name) has now been equipped onto \(player.username)", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)
     }
 
     func unequippedItem(name: String){
-        let alert = UIAlertController(title: "Unequipped Item!", message: "\(name) has now been unequipped from your character", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Unequipped Item!", message: "\(name) has now been unequipped from \(player.username)", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Thanks!", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)

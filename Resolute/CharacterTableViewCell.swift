@@ -16,7 +16,12 @@ class CharacterTableViewCell: UITableViewCell {
     
     func update(with item: Item, index: Int){
         itemName.text = item.name
-        equipButton.setTitle("Equip", for: .normal)
+        if !item.equip{
+            equipButton.setTitle("Equip", for: .normal)
+        }
+        else{
+            equipButton.setTitle("Unequip", for: .normal)
+        }
         equipButton.tag = index
     }
     
