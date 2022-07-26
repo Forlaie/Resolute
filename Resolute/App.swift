@@ -46,6 +46,17 @@ struct Player{
     var xp: Int
     var lvlupXp: Int
     var inventory: [Item]
+    var achievementsFinished: Int
+}
+
+struct Achievement{
+    var title: String
+    var description: String
+    //var image: UIImage
+    var completed: Bool
+    var collected: Bool
+    var xp: Int
+    var money: Int
 }
 
 enum AppState{
@@ -78,6 +89,26 @@ func sortShopItems() -> [Item]{
     }
     sortedShopItems.append(contentsOf: unaffordableShopItems)
     return sortedShopItems
+}
+
+func sortAchievements() -> [Achievement]{
+    var sortedAchievements: [Achievement] = []
+    var completedAchievements: [Achievement] = []
+    var collectedAchievements: [Achievement] = []
+    for achievement in achievements{
+        if achievement.completed && !achievement.collected{
+            sortedAchievements.append(achievement)
+        }
+        else if !achievement.completed{
+            completedAchievements.append(achievement)
+        }
+        else{
+            collectedAchievements.append(achievement)
+        }
+    }
+    sortedAchievements.append(contentsOf: completedAchievements)
+    sortedAchievements.append(contentsOf: collectedAchievements)
+    return sortedAchievements
 }
 
 var appState: AppState = .normal
@@ -116,4 +147,14 @@ var shopItems: [Item] = [
     }
 }
 
-var player = Player(username: "Forlaie", money: 0, level: 1, xp: 0, lvlupXp: 50, inventory: [])
+var player = Player(username: "Forlaie", money: 0, level: 1, xp: 0, lvlupXp: 50, inventory: [], achievementsFinished: 0)
+
+var achievements: [Achievement] = [
+    Achievement(title: "On that daily grind", description: "Complete your first daily", completed: true, collected: false, xp: 20, money: 10),
+    Achievement(title: "First try baby", description: "Complete your first quest", completed: true, collected: false, xp: 20, money: 10),
+    Achievement(title: "Number 2 pencil", description: "Reach level 2", completed: true, collected: false, xp: 30, money: 15)
+] {
+    didSet {
+        achievements = sortAchievements()
+    }
+}

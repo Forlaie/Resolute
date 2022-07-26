@@ -7,37 +7,38 @@
 
 import UIKit
 
+protocol AchievementTableViewCellDelegate: AnyObject{
+    func collectAchievement(index: Int)
+}
+
 class AchievementsViewController: UIViewController {
-    
-    /*
-     // MARK: - Pseudocode
-     Achievements should be in a vertical stack view
-     
-     they should be their own custom type with name, image, coins
-     should have an enum for inProgress, completed, collected
-     
-     Progress Bar:
-     progressView = outlet of progress bar
-     let progress = Progress(totalUnitCount: #)
-     self.progress.completedUnitCount += 1
-     let progressFloat = Float(self.progress.fractionCompleted)
-     self.progressView.setProgress(progressFloat, animated: true)
-    */
 
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var XPProgressBar: UIProgressView!
     @IBOutlet weak var XPLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var completionLabel: UILabel!
+    @IBOutlet weak var completionProgressBar: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.allowsSelection = false
         updateLevelLabel()
         updateXPProgressBar()
         updateXPLabel()
         updateMoneyLabel()
+        updateCompletionLabel()
+        updateCompletionProgressBar()
     }
     
     func updateLevelLabel(){
+        if player.xp >= player.lvlupXp{
+            player.xp -= player.lvlupXp
+            player.level += 1
+            player.lvlupXp = 50 * player.level
+        }
         levelLabel.text = "Level \(player.level)"
     }
     
@@ -51,5 +52,60 @@ class AchievementsViewController: UIViewController {
     
     func updateMoneyLabel(){
         moneyLabel.text = "\(player.money) money"
+    }
+    
+    func updateCompletionLabel(){
+        let number = Int(Float(player.achievementsFinished)/Float(achievements.count)*100.0)
+        completionLabel.text = "\(number)%"
+    }
+    
+    func updateCompletionProgressBar(){
+        completionProgressBar.progress = Float(player.achievementsFinished)/Float(achievements.count)
+    }
+}
+
+extension AchievementsViewController: AchievementTableViewCellDelegate {
+    func collectAchievement(index: Int){
+        achievements[index].collected = true
+        player.achievementsFinished += 1
+        player.xp += achievements[index].xp
+        player.money += achievements[index].money
+//        let achievement = achievements[index]
+//        print(achievement)
+//        achievements.remove(at: index)
+//        achievements.append(achievement)
+        updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
+        updateMoneyLabel()
+        updateCompletionLabel()
+        updateCompletionProgressBar()
+        collectAchievement(achievement: achievements[index])
+    }
+
+    func collectAchievement(achievement: Achievement){
+        let alert = UIAlertController(title: "Completed \(achievement.title)", message: "Collected \(achievement.xp)XP and \(achievement.money) money!", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true, completion: nil)
+        tableView.reloadData()
+    }
+}
+
+extension AchievementsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return achievements.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AchievementTableViewCell
+        cell.update(with: achievements[indexPath.row], index: indexPath.row)
+        cell.delegate = self
+        return cell
     }
 }
