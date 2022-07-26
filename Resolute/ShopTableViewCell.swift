@@ -21,11 +21,19 @@ class ShopTableViewCell: UITableViewCell {
         itemPrice.text = "\(item.cost) money"
         itemPrice.tag = item.cost
         purchaseButton.tag = index
-        if item.cost > player.money{
+        if item.own{
             purchaseButton.isEnabled = false
+            purchaseButton.setTitle("Purchased", for: .normal)
         }
         else{
-            purchaseButton.isEnabled = true
+            if item.cost > player.money{
+                purchaseButton.isEnabled = false
+                purchaseButton.setTitle("Purchase", for: .normal)
+            }
+            else{
+                purchaseButton.isEnabled = true
+                purchaseButton.setTitle("Purchase", for: .normal)
+            }
         }
     }
     

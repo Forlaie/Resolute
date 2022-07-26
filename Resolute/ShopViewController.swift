@@ -55,6 +55,10 @@ extension ShopViewController: ShopTableViewCellDelegate {
         purchaseSuccess(name: name)
         player.money -= price
         player.inventory.append(shopItems[index])
+        var item = shopItems[index]
+        item.own = true
+        shopItems.remove(at: index)
+        shopItems.append(item)
         updateUI()
         tableView.reloadData()
         //        if player.money < price{
