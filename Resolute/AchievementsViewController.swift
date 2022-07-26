@@ -34,6 +34,9 @@ class AchievementsViewController: UIViewController {
             player.level += 1
             player.lvlupXp = 50 * player.level
             leveledUp()
+            if player.level == 2{
+                achievements[2].completed = true
+            }
         }
         levelLabel.text = "Level \(player.level)"
     }

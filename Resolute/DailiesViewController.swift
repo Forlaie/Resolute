@@ -34,6 +34,9 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
             player.level += 1
             player.lvlupXp = 50 * player.level
             leveledUp()
+            if player.level == 2{
+                achievements[2].completed = true
+            }
         }
         levelLabel.text = "Level \(player.level)"
     }
@@ -72,6 +75,10 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneDaily(_ sender: UIButton) {
+        if !firstDailyDone{
+            firstDailyDone = true
+            achievements[0].completed = true
+        }
         var index = 0
         for button in dailyButtons{
             if button == sender.tag{

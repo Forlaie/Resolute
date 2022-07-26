@@ -150,11 +150,14 @@ var shopItems: [Item] = [
 var player = Player(username: "Forlaie", money: 0, level: 1, xp: 0, lvlupXp: 50, inventory: [], achievementsFinished: 0)
 
 var achievements: [Achievement] = [
-    Achievement(title: "On that daily grind", description: "Complete your first daily", completed: true, collected: false, xp: 20, money: 10),
-    Achievement(title: "First try baby", description: "Complete your first quest", completed: true, collected: false, xp: 20, money: 10),
-    Achievement(title: "Number 2 pencil", description: "Reach level 2", completed: true, collected: false, xp: 30, money: 15)
+    Achievement(title: "On that daily grind", description: "Complete your first daily", completed: false, collected: false, xp: 20, money: 10),
+    Achievement(title: "First try baby", description: "Complete your first quest", completed: false, collected: false, xp: 20, money: 10),
+    Achievement(title: "Number 2 pencil", description: "Reach level 2", completed: false, collected: false, xp: 30, money: 15)
 ] {
     didSet {
         achievements = sortAchievements()
     }
 }
+
+var firstDailyDone = false
+var firstQuestDone = false

@@ -41,6 +41,9 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             player.level += 1
             player.lvlupXp = 50 * player.level
             leveledUp()
+            if player.level == 2{
+                achievements[2].completed = true
+            }
         }
         levelLabel.text = "Level \(player.level)"
         levelLabel.textColor = chosenCategory!.textColor
@@ -86,6 +89,10 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneQuest(_ sender: UIButton) {
+        if !firstQuestDone{
+            firstQuestDone = true
+            achievements[1].completed = true
+        }
         var index = 0
         for button in chosenCategory!.questButtons{
             if button == sender.tag{
