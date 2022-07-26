@@ -66,14 +66,13 @@ class AchievementsViewController: UIViewController {
 
 extension AchievementsViewController: AchievementTableViewCellDelegate {
     func collectAchievement(index: Int){
-        achievements[index].collected = true
         player.achievementsFinished += 1
         player.xp += achievements[index].xp
         player.money += achievements[index].money
-//        let achievement = achievements[index]
-//        print(achievement)
-//        achievements.remove(at: index)
-//        achievements.append(achievement)
+        var achievement = achievements[index]
+        achievement.collected = true
+        achievements.remove(at: index)
+        achievements.append(achievement)
         updateLevelLabel()
         updateXPProgressBar()
         updateXPLabel()
