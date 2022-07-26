@@ -23,6 +23,10 @@ class ShopViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.allowsSelection = false
+        updateUI()
+    }
+    
+    func updateUI() {
         updateLevelLabel()
         updateXPProgressBar()
         updateXPLabel()
@@ -51,7 +55,7 @@ extension ShopViewController: ShopTableViewCellDelegate {
         purchaseSuccess(name: name)
         player.money -= price
         player.inventory.append(shopItems[index])
-        updateMoneyLabel()
+        updateUI()
         tableView.reloadData()
         //        if player.money < price{
         //            purchaseFailure(name: name)

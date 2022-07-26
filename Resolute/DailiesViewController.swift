@@ -26,10 +26,6 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         appState = .normal
         updateUI()
         buildDailies()
-        updateLevelLabel()
-        updateXPProgressBar()
-        updateXPLabel()
-        updateMoneyLabel()
     }
     
     func updateLevelLabel(){
@@ -91,14 +87,10 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
                 
                 buildDailies()
                 appState = .normal
-                updateUI()
                 
                 player.xp += 10
                 player.money += 5
-                updateLevelLabel()
-                updateXPProgressBar()
-                updateXPLabel()
-                updateMoneyLabel()
+                updateUI()
                 
                 break
             }
@@ -120,6 +112,11 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         case .normal:
             browsing()
         }
+        
+        updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
+        updateMoneyLabel()
     }
     
     func browsing(){

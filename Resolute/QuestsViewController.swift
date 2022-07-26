@@ -25,11 +25,6 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
         super.viewDidLoad()
         appState = .normal
         updateUI()
-        buildCategories()
-        updateLevelLabel()
-        updateXPProgressBar()
-        updateXPLabel()
-        updateMoneyLabel()
     }
     
     func updateLevelLabel(){
@@ -88,6 +83,12 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
         case .normal:
             browsing()
         }
+        
+        buildCategories()
+        updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
+        updateMoneyLabel()
     }
     
     func browsing(){

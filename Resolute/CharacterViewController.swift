@@ -19,14 +19,18 @@ class CharacterViewController: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.allowsSelection = true
+    func updateUI() {
         updateLevelLabel()
         updateXPProgressBar()
         updateXPLabel()
         updateMoneyLabel()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.allowsSelection = true
+        updateUI()
     }
     
     func updateLevelLabel(){

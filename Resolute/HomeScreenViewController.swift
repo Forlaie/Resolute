@@ -19,6 +19,10 @@ class HomeScreenViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        updateUI()
+    }
+    
+    func updateUI() {
         updateLevelLabel()
         updateXPProgressBar()
         updateXPLabel()

@@ -25,12 +25,7 @@ class AchievementsViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.allowsSelection = false
-        updateLevelLabel()
-        updateXPProgressBar()
-        updateXPLabel()
-        updateMoneyLabel()
-        updateCompletionLabel()
-        updateCompletionProgressBar()
+        updateUI()
     }
     
     func updateLevelLabel(){
@@ -62,9 +57,19 @@ class AchievementsViewController: UIViewController {
     func updateCompletionProgressBar(){
         completionProgressBar.progress = Float(player.achievementsFinished)/Float(achievements.count)
     }
+    
+    func updateUI() {
+        updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
+        updateMoneyLabel()
+        updateCompletionLabel()
+        updateCompletionProgressBar()
+    }
 }
 
 extension AchievementsViewController: AchievementTableViewCellDelegate {
+    
     func collectAchievement(index: Int){
         player.achievementsFinished += 1
         player.xp += achievements[index].xp
@@ -73,12 +78,7 @@ extension AchievementsViewController: AchievementTableViewCellDelegate {
         achievement.collected = true
         achievements.remove(at: index)
         achievements.append(achievement)
-        updateLevelLabel()
-        updateXPProgressBar()
-        updateXPLabel()
-        updateMoneyLabel()
-        updateCompletionLabel()
-        updateCompletionProgressBar()
+        updateUI()
         collectAchievement(achievement: achievements[index])
     }
 

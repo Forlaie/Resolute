@@ -24,11 +24,6 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createCategoryLabel()
-        updateLevelLabel()
-        updateXPProgressBar()
-        updateXPLabel()
-        updateMoneyLabel()
         appState = .normal
         updateUI()
         buildQuests()
@@ -98,14 +93,10 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
                 
                 buildQuests()
                 appState = .normal
-                updateUI()
                 
                 player.xp += 10
                 player.money += 5
-                updateLevelLabel()
-                updateXPProgressBar()
-                updateXPLabel()
-                updateMoneyLabel()
+                updateUI()
                 
                 break
             }
@@ -127,6 +118,12 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
         case .normal:
             browsing()
         }
+        
+        createCategoryLabel()
+        updateLevelLabel()
+        updateXPProgressBar()
+        updateXPLabel()
+        updateMoneyLabel()
     }
     
     func browsing(){
