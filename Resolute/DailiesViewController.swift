@@ -193,7 +193,6 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textFieldContents = textField.text!
         dailyTasks.append(Task(text: textFieldContents, state: .inProgress, dueDate: Date()))
-        
         buildDailies()
         
         appState = .normal

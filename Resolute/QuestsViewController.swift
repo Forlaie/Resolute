@@ -25,6 +25,7 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
         super.viewDidLoad()
         appState = .normal
         updateUI()
+        buildCategories()
     }
     
     func updateLevelLabel(){
@@ -84,7 +85,6 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
             browsing()
         }
         
-        buildCategories()
         updateLevelLabel()
         updateXPProgressBar()
         updateXPLabel()
@@ -182,16 +182,12 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
             newCategory.titleLabel?.font = .systemFont(ofSize: 30)
             newCategory.titleLabel?.numberOfLines = 1
             newCategory.titleLabel?.adjustsFontSizeToFitWidth = true
-            let constraint = [newCategory.heightAnchor.constraint(equalToConstant: 70), newCategory.widthAnchor.constraint(equalToConstant: 300)]
-            NSLayoutConstraint.activate(constraint)
             newCategory.addTarget(self, action: #selector(switchScreens), for: .touchUpInside)
             
             let newCategoryDeleteButton = UIButton()
             newCategoryDeleteButton.layer.cornerRadius = 5
             newCategoryDeleteButton.setTitle("Delete", for: .normal)
             newCategoryDeleteButton.backgroundColor = .red
-            let deleteButtonConstraint = [newCategoryDeleteButton.widthAnchor.constraint(equalToConstant: 70)]
-            NSLayoutConstraint.activate(deleteButtonConstraint)
             newCategoryDeleteButton.addTarget(self, action: #selector(chooseCategoryToDelete), for: .touchUpInside)
             
             let stack = UIStackView()
@@ -211,6 +207,12 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
             categoryDeleteButtons.append(newCategoryDeleteButton)
             categoryDeleteButtonTags.append(categoryButtonCount)
             categoryButtonCount += 1
+            
+            let constraint = [newCategory.heightAnchor.constraint(equalToConstant: 70), newCategory.leadingAnchor.constraint(equalTo: stack.layoutMarginsGuide.leadingAnchor)]
+            NSLayoutConstraint.activate(constraint)
+            let deleteButtonConstraint = [newCategoryDeleteButton.widthAnchor.constraint(equalToConstant: 70)]
+            NSLayoutConstraint.activate(deleteButtonConstraint)
+            newCategoryDeleteButton.leadingAnchor.constraint(equalTo: newCategory.layoutMarginsGuide.trailingAnchor).isActive = true
         }
     }
     
