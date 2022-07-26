@@ -42,7 +42,11 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             player.lvlupXp = 50 * player.level
             leveledUp()
             if player.level == 2{
-                achievements[2].completed = true
+                for index in 0..<achievements.count{
+                    if achievements[index].title == "Number 2 pencil"{
+                        achievements[index].completed = true
+                    }
+                }
             }
         }
         levelLabel.text = "Level \(player.level)"
@@ -91,7 +95,11 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doneQuest(_ sender: UIButton) {
         if !firstQuestDone{
             firstQuestDone = true
-            achievements[1].completed = true
+            for index in 0..<achievements.count{
+                if achievements[index].title == "First try baby"{
+                    achievements[index].completed = true
+                }
+            }
         }
         var index = 0
         for button in chosenCategory!.questButtons{
