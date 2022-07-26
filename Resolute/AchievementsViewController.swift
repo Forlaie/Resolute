@@ -33,8 +33,16 @@ class AchievementsViewController: UIViewController {
             player.xp -= player.lvlupXp
             player.level += 1
             player.lvlupXp = 50 * player.level
+            leveledUp()
         }
         levelLabel.text = "Level \(player.level)"
+    }
+    
+    func leveledUp(){
+        let alert = UIAlertController(title: "Leveled up!", message: "\(player.username) is now level \(player.level)!", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "GG!", style: .default, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true, completion: nil)
     }
     
     func updateXPProgressBar(){
@@ -79,16 +87,17 @@ extension AchievementsViewController: AchievementTableViewCellDelegate {
         achievements.remove(at: index)
         achievements.append(achievement)
         updateUI()
-        collectAchievement(achievement: achievements[index])
+        tableView.reloadData()
+        //collectAchievement(achievement: achievements[index])
     }
 
-    func collectAchievement(achievement: Achievement){
-        let alert = UIAlertController(title: "Completed \(achievement.title)", message: "Collected \(achievement.xp)XP and \(achievement.money) money!", preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
-        alert.addAction(dismiss)
-        present(alert, animated: true, completion: nil)
-        tableView.reloadData()
-    }
+//    func collectAchievement(achievement: Achievement){
+//        let alert = UIAlertController(title: "Completed \(achievement.title)", message: "Collected \(achievement.xp)XP and \(achievement.money) money!", preferredStyle: .alert)
+//        let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
+//        alert.addAction(dismiss)
+//        present(alert, animated: true, completion: nil)
+//        tableView.reloadData()
+//    }
 }
 
 extension AchievementsViewController: UITableViewDataSource {

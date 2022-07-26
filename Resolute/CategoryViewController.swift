@@ -40,11 +40,18 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             player.xp -= player.lvlupXp
             player.level += 1
             player.lvlupXp = 50 * player.level
+            leveledUp()
         }
         levelLabel.text = "Level \(player.level)"
         levelLabel.textColor = chosenCategory!.textColor
         levelLabel.backgroundColor = chosenCategory!.backgroundColor
-        
+    }
+    
+    func leveledUp(){
+        let alert = UIAlertController(title: "Leveled up!", message: "\(player.username) is now level \(player.level)!", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "GG!", style: .default, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true, completion: nil)
     }
     
     func updateXPProgressBar(){

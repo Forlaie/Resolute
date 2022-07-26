@@ -33,8 +33,16 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
             player.xp -= player.lvlupXp
             player.level += 1
             player.lvlupXp = 50 * player.level
+            leveledUp()
         }
         levelLabel.text = "Level \(player.level)"
+    }
+    
+    func leveledUp(){
+        let alert = UIAlertController(title: "Leveled up!", message: "\(player.username) is now level \(player.level)!", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "GG!", style: .default, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true, completion: nil)
     }
     
     func updateXPProgressBar(){
@@ -48,13 +56,6 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     func updateMoneyLabel(){
         moneyLabel.text = "\(player.money) money"
     }
-    
-//    func leveledUp(){
-//        let alert = UIAlertController(title: "Leveled!", message: "\(name) has now been equipped on your character", preferredStyle: .alert)
-//        let dismiss = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
-//        alert.addAction(dismiss)
-//        present(alert, animated: true, completion: nil)
-//    }
     
     override func viewDidLayoutSubviews() {
         scroll.contentSize = CGSize(width: scroll.frame.width, height: dailiesStack.bounds.height + 60)
