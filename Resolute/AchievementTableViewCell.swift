@@ -44,7 +44,7 @@ class AchievementTableViewCell: UITableViewCell {
         
         collectButton.tag = index
         XPLabel.text = "\(achievement.xp) xp"
-        moneyLabel.text = "\(achievement.money) money"
+        moneyLabel.text = "\(achievement.money) starlights"
     }
     
     @IBAction func collectAchievement(_ sender: UIButton) {

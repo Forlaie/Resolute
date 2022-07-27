@@ -65,7 +65,7 @@ class AchievementsViewController: UIViewController {
             moneyLabel.text = "\(player.money) starlight"
         }
         else{
-            moneyLabel.text = "\(player.money) starlight"
+            moneyLabel.text = "\(player.money) starlights"
         }
     }
     

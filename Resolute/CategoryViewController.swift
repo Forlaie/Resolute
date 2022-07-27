@@ -77,7 +77,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
             moneyLabel.text = "\(player.money) starlight"
         }
         else{
-            moneyLabel.text = "\(player.money) starlight"
+            moneyLabel.text = "\(player.money) starlights"
         }
         moneyLabel.textColor = chosenCategory!.textColor
         moneyLabel.backgroundColor = chosenCategory!.backgroundColor
