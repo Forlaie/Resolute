@@ -33,11 +33,12 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
             player.xp -= player.lvlupXp
             player.level += 1
             player.lvlupXp = 50 * player.level
-            leveledUp()
+            //leveledUp()
             if player.level == 2{
                 for index in 0..<achievements.count{
                     if achievements[index].title == "Number 2 pencil"{
                         achievements[index].completed = true
+                        level2Achievement()
                     }
                 }
             }
@@ -45,12 +46,19 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         levelLabel.text = "Level \(player.level)"
     }
     
-    func leveledUp(){
-        let alert = UIAlertController(title: "Leveled up!", message: "\(player.username) is now level \(player.level)!", preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "GG!", style: .default, handler: nil)
+    func level2Achievement(){
+        let alert = UIAlertController(title: "Pro gamer", message: "Completed \"Number 2 pencil\" achievement", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)
     }
+    
+//    func leveledUp(){
+//        let alert = UIAlertController(title: "Leveled up!", message: "\(player.username) is now level \(player.level)!", preferredStyle: .alert)
+//        let dismiss = UIAlertAction(title: "GG!", style: .default, handler: nil)
+//        alert.addAction(dismiss)
+//        present(alert, animated: true, completion: nil)
+//    }
     
     func updateXPProgressBar(){
         XPProgressBar.progress = Float(player.xp)/Float(player.lvlupXp)
@@ -83,12 +91,20 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
         updateUI()
     }
     
+    func firstDailyDoneAchievement(){
+        let alert = UIAlertController(title: "Pro gamer", message: "Completed \"On that daily grind\" achievement", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func doneDaily(_ sender: UIButton) {
         if !firstDailyDone{
             firstDailyDone = true
             for index in 0..<achievements.count{
                 if achievements[index].title == "On that daily grind"{
                     achievements[index].completed = true
+                    firstDailyDoneAchievement()
                 }
             }
         }
