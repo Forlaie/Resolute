@@ -56,7 +56,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     func level2Achievement(){
-        let alert = UIAlertController(title: "Pro gamer", message: "Completed \"Number 2 pencil\" achievement", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"Number 2 pencil\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)
@@ -106,7 +106,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     func firstQuestDoneAchievement(){
-        let alert = UIAlertController(title: "Pro gamer", message: "Completed \"First try baby\" achievement", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"First try babyyy\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)

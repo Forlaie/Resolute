@@ -47,7 +47,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     func level2Achievement(){
-        let alert = UIAlertController(title: "Pro gamer", message: "Completed \"Number 2 pencil\" achievement", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"Number 2 pencil\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)
@@ -92,7 +92,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     func firstDailyDoneAchievement(){
-        let alert = UIAlertController(title: "Pro gamer", message: "Completed \"On that daily grind\" achievement", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"On that daily grind\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
         present(alert, animated: true, completion: nil)

@@ -151,7 +151,7 @@ var player = Player(username: "Forlaie", money: 0, level: 1, xp: 0, lvlupXp: 50,
 
 var achievements: [Achievement] = [
     Achievement(image: UIImage(named: "Trophy.png")!, title: "On that daily grind", description: "Complete your first daily", completed: false, collected: false, xp: 20, money: 10),
-    Achievement(image: UIImage(named: "Trophy.png")!, title: "First try baby", description: "Complete your first quest", completed: false, collected: false, xp: 20, money: 10),
+    Achievement(image: UIImage(named: "Trophy.png")!, title: "First try babyyy", description: "Complete your first quest", completed: false, collected: false, xp: 20, money: 10),
     Achievement(image: UIImage(named: "Trophy.png")!, title: "Number 2 pencil", description: "Reach level 2", completed: false, collected: false, xp: 30, money: 15)
 ] {
     didSet {
