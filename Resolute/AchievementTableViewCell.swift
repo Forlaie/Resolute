@@ -18,7 +18,7 @@ class AchievementTableViewCell: UITableViewCell {
     @IBOutlet weak var moneyLabel: UILabel!
     
     func update(with achievement: Achievement, index: Int){
-        //achievementGraphic.image = achievement.image
+        achievementGraphic.image = achievement.image
         achievementTitleLabel.text = achievement.title
         achievementDescriptionLabel.text = achievement.description
         

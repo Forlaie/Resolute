@@ -50,9 +50,9 @@ struct Player{
 }
 
 struct Achievement{
+    var image: UIImage
     var title: String
     var description: String
-    //var image: UIImage
     var completed: Bool
     var collected: Bool
     var xp: Int
@@ -150,9 +150,9 @@ var shopItems: [Item] = [
 var player = Player(username: "Forlaie", money: 0, level: 1, xp: 0, lvlupXp: 50, inventory: [], achievementsFinished: 0)
 
 var achievements: [Achievement] = [
-    Achievement(title: "On that daily grind", description: "Complete your first daily", completed: false, collected: false, xp: 20, money: 10),
-    Achievement(title: "First try baby", description: "Complete your first quest", completed: false, collected: false, xp: 20, money: 10),
-    Achievement(title: "Number 2 pencil", description: "Reach level 2", completed: false, collected: false, xp: 30, money: 15)
+    Achievement(image: UIImage(named: "Trophy.png")!, title: "On that daily grind", description: "Complete your first daily", completed: false, collected: false, xp: 20, money: 10),
+    Achievement(image: UIImage(named: "Trophy.png")!, title: "First try baby", description: "Complete your first quest", completed: false, collected: false, xp: 20, money: 10),
+    Achievement(image: UIImage(named: "Trophy.png")!, title: "Number 2 pencil", description: "Reach level 2", completed: false, collected: false, xp: 30, money: 15)
 ] {
     didSet {
         achievements = sortAchievements()
