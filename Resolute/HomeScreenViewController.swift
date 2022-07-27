@@ -42,7 +42,12 @@ class HomeScreenViewController: UIViewController {
     }
     
     func updateMoneyLabel(){
-        moneyLabel.text = "\(player.money) money"
+        if player.money == 1{
+            moneyLabel.text = "\(player.money) starlight"
+        }
+        else{
+            moneyLabel.text = "\(player.money) starlight"
+        }
     }
 }
 

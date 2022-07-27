@@ -18,7 +18,12 @@ class ShopTableViewCell: UITableViewCell {
     func update(with item: Item, index: Int){
         itemGraphic.image = item.image
         itemName.text = item.name
-        itemPrice.text = "\(item.cost) money"
+        if item.cost == 1{
+            itemPrice.text = "\(item.cost) starlight"
+        }
+        else{
+            itemPrice.text = "\(item.cost) starlights"
+        }
         itemPrice.tag = item.cost
         purchaseButton.tag = index
         if item.own{
