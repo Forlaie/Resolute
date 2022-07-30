@@ -6,8 +6,57 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DailiesViewController: UIViewController, UITextFieldDelegate {
+    
+    var audioPlayer: AVAudioPlayer?
+    
+    func playAchievementSound(){
+        let pathToSound = Bundle.main.path(forResource: "Achievement Sound Effect _ Royalty Free", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
+    
+//    func playClickButtonSound(){
+//        let pathToSound = Bundle.main.path(forResource: "Click On-SoundBible.com-1697535117", ofType: "mp3")
+//        let url = URL(fileURLWithPath: pathToSound!)
+//        do {
+//            audioPlayer = try AVAudioPlayer(contentsOf: url)
+//            audioPlayer?.play()
+//        } catch {
+//            //whatever
+//        }
+//    }
+    
+    func playDeleteDailySound(){
+        let pathToSound = Bundle.main.path(forResource: "Delete Button Sound Effect", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.currentTime = 0.86
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
+    
+    func playCompleteDailySound(){
+        let pathToSound = Bundle.main.path(forResource: "Y2Mate.is - Level Complete Sound Effect-LqbxJx2YgQU-128k-1659142354584", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.currentTime = 0.86
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
     
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var XPProgressBar: UIProgressView!
@@ -47,6 +96,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     func level2Achievement(){
+        playAchievementSound()
         let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"Number 2 pencil\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
@@ -82,16 +132,19 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func addDaily(_ sender: UIButton) {
+        //playClickButtonSound()
         appState = .add
         updateUI()
     }
     
     @IBAction func deleteDaily(_ sender: UIButton) {
+        //playClickButtonSound()
         appState = .delete
         updateUI()
     }
     
     func firstDailyDoneAchievement(){
+        playAchievementSound()
         let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"On that daily grind\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
@@ -99,6 +152,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneDaily(_ sender: UIButton) {
+        playCompleteDailySound()
         if !firstDailyDone{
             firstDailyDone = true
             for index in 0..<achievements.count{
@@ -136,6 +190,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneAction(_ sender: UIButton) {
+        //playClickButtonSound()
         appState = .normal
         updateUI()
     }
@@ -199,6 +254,7 @@ class DailiesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func chooseDailyToDelete(_ sender: UIButton){
+        playDeleteDailySound()
         var index = 0
         for button in dailyDeleteButtonTags{
             if button == sender.tag{

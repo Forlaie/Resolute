@@ -6,8 +6,46 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CategoryViewController: UIViewController, UITextFieldDelegate {
+    
+    var audioPlayer: AVAudioPlayer?
+    
+    func playAchievementSound(){
+        let pathToSound = Bundle.main.path(forResource: "Achievement Sound Effect _ Royalty Free", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
+    
+    func playDeleteQuestSound(){
+        let pathToSound = Bundle.main.path(forResource: "Delete Button Sound Effect", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.currentTime = 0.86
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
+    
+    func playCompleteQuestSound(){
+        let pathToSound = Bundle.main.path(forResource: "Y2Mate.is - Level Complete Sound Effect-LqbxJx2YgQU-128k-1659142354584", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.currentTime = 0.86
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
 
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var XPProgressBar: UIProgressView!
@@ -56,6 +94,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     func level2Achievement(){
+        playAchievementSound()
         let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"Number 2 pencil\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
@@ -106,6 +145,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     func firstQuestDoneAchievement(){
+        playAchievementSound()
         let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"First try babyyy\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
@@ -113,10 +153,11 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneQuest(_ sender: UIButton) {
+        playCompleteQuestSound()
         if !firstQuestDone{
             firstQuestDone = true
             for index in 0..<achievements.count{
-                if achievements[index].title == "First try baby"{
+                if achievements[index].title == "First try babyyy"{
                     achievements[index].completed = true
                     firstQuestDoneAchievement()
                 }
@@ -212,6 +253,7 @@ class CategoryViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func chooseQuestToDelete(_ sender: UIButton){
+        playDeleteQuestSound()
         var index = 0
         for button in chosenCategory!.questDeleteButtonTags{
             if button == sender.tag{

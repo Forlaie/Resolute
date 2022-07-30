@@ -6,8 +6,23 @@
 //
 
 import UIKit
+import AVFoundation
 
 class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPickerViewControllerDelegate {
+    
+    var audioPlayer: AVAudioPlayer?
+    
+    func playDeleteDailySound(){
+        let pathToSound = Bundle.main.path(forResource: "Delete Button Sound Effect", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.currentTime = 0.86
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
     
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var XPProgressBar: UIProgressView!
