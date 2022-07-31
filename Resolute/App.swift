@@ -79,8 +79,12 @@ func sortDailyTasks() -> [Task]{
 func sortShopItems() -> [Item]{
     var sortedShopItems: [Item] = []
     var unaffordableShopItems: [Item] = []
+    var ownedShopItems: [Item] = []
     for item in shopItems{
-        if item.cost <= player.money{
+        if item.own{
+            ownedShopItems.append(item)
+        }
+        else if item.cost <= player.money{
             sortedShopItems.append(item)
         }
         else{
@@ -88,6 +92,7 @@ func sortShopItems() -> [Item]{
         }
     }
     sortedShopItems.append(contentsOf: unaffordableShopItems)
+    sortedShopItems.append(contentsOf: ownedShopItems)
     return sortedShopItems
 }
 

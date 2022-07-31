@@ -6,12 +6,26 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol AchievementTableViewCellDelegate: AnyObject{
     func collectAchievement(index: Int)
 }
 
 class AchievementsViewController: UIViewController {
+    
+    var audioPlayer: AVAudioPlayer?
+    
+    func playAchievementSound(){
+        let pathToSound = Bundle.main.path(forResource: "Achievement Sound Effect _ Royalty Free", ofType: "mp3")
+        let url = URL(fileURLWithPath: pathToSound!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            //whatever
+        }
+    }
 
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var XPProgressBar: UIProgressView!
@@ -47,6 +61,7 @@ class AchievementsViewController: UIViewController {
     }
     
     func level2Achievement(){
+        playAchievementSound()
         let alert = UIAlertController(title: "Achievement unlocked!", message: "Completed \"Number 2 pencil\"", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "GG", style: .default, handler: nil)
         alert.addAction(dismiss)
