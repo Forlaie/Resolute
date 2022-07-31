@@ -155,6 +155,7 @@ class QuestsViewController: UIViewController, UITextFieldDelegate, UIColorPicker
     }
     
     @IBAction func chooseCategoryToDelete(_ sender: UIButton){
+        playDeleteDailySound()
         var index = 0
         for button in categoryDeleteButtonTags{
             if button == sender.tag{
